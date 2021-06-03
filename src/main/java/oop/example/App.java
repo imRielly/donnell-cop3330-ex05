@@ -1,5 +1,6 @@
 package oop.example;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 /*
@@ -51,7 +52,10 @@ public class App
         try {
             System.out.print(prompt);
             input = in.nextLine();
-            int testInput = Integer.parseInt(input);
+            int testInput = Integer.parseInt(input); //Will intentionally throw error if not able to parseInt
+            if (testInput < 0) {
+                throw new NumberFormatException();
+            }
         } catch (Exception e) {
             input = requestNumber(prompt);
         }
